@@ -1,0 +1,52 @@
+{% extends 'base_teacher.html' %}
+
+{% block title %}
+    Student details
+{% endblock %}
+
+
+{% block header %}
+
+<!-- =================content=================== -->
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="content">
+    <header class="dashboard">
+
+        <a href ="/teacher/class" class="action-btn"> Terug naar overzicht</a>
+        <h2>Resultaten van {{student[1]}}</h2>
+        <p>Gedetailleerd inzicht in de voortgang van deze leerling.</p>
+    </header>
+
+    <section class="profile-cotainer">
+        <dl class="profile-info">
+            <dt>Gemiddelde Score:</dt>
+            <dd>{{(score*10)|round(1)}}</dd>
+
+            <dt>Status:</dt>
+            <dd>
+                {%if score >= 0.80%}
+                    <span class="status-perfect">Uitblinkend</span>
+                {% elif score >=0.55 %}
+                    <span class="status-success">Op schema</span>
+                {%else%}
+                    <span class="status-help">Aandacht nodig</span>
+                {%endif%}
+            </dd>
+
+            <dt>Samenvattend inzicht:</dt>
+            <dd class="insight-box">
+            <strong>Analyse:</strong> {{insight}}
+            </dd>
+        </dl>
+    </section>
+
+
+
+        <span class="container"></span>
+</div>
+{% endblock %}

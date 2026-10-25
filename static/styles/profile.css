@@ -1,0 +1,22 @@
+#header .content{
+    font-family: sans-serif;
+}
+
+#header .profile-info{
+    font-family: sans-serif;
+    margin-top: 45px;
+}
+
+#header .profile-info p{
+    font-style: italic;
+}
+
+/* Code hieronder niet aanpassen is voor de alternatieve student profile page */
+#header .profile-info-alternative{
+    font-family: sans-serif;
+    margin-top: 45px;
+}
+
+#header .profile-info-alternative p{
+    font-style: italic;
+}

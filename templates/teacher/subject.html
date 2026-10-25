@@ -1,0 +1,65 @@
+{% extends 'base_teacher.html' %}
+
+{% block title %}
+   subject
+{% endblock %}
+
+
+{% block header %}
+
+<!-- =================content=================== -->
+
+{% endblock %}
+{% block content %}
+<div class="analysis-page">
+    <section class="analysis-card">
+        <header>
+            <h1>Onderwerpen</h1>
+            <p>Overzicht van de klasprestaties om de focus van de volgende lessen te bepalen</p>
+        </header>
+
+        <figure class="chart-area" style="height: 300px; width:100%; position: relative;">
+            <canvas id="classChart"></canvas>
+            <figcaption style="font-size:0.85rem; color: #666; margin-top:5px; text-align: center">
+                Gemiddelde beheersing per student voor de huidige onderwerpen.</figcaption>
+        </figure>
+    </section>
+
+    <aside class="analysis-card">
+    <section>
+    <header>
+        <h2 id="priority-title">...</h2>
+    </header>
+
+        <article>
+        <span id="status-badge" class="status-score low">Klasgemiddelde</span>
+            <p id="priority-text">De klas scoort laag op de volgende onderwerpen.
+            <br>
+                 Let op het verschil tussen <em> kennen</em> en <em>kunnen</em>:
+            </p>
+        <div style="margin-bottom: 20px;">
+            <strong style="font-size: 0.9rem;">Leerdoelen:</strong>
+            <ul id="learning goal-list"
+                style="list-style: none; padding: 0; margin-top: 5px; font-weight: bold;color: #1e4eb8">
+                <li>...</li>
+            </ul>
+        </div>
+            <h3>Onderwerpen - Kunnen</h3>
+            <ul id="kunnen-tags" class="keyword-tags kunnen-tags"><li>...</li>
+            </ul>
+
+            <h3>Onderwerpen - Kennen</h3>
+            <ul id="kennen-tags" class="keyword-tags kennen-tags"><li>...</li>
+            </ul>
+        </article>
+    </section>
+    </aside>
+</div>
+    <script>
+    const subjectId = {{ subject_id }}
+</script>
+<!-------load Chart.js ------>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-------load JS file ------->
+<script src="{{ url_for('static', filename='js/subject_teacher.js') }}"></script>
+{% endblock %}

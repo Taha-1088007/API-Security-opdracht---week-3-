@@ -1,0 +1,66 @@
+{% extends 'base_student.html' %}
+
+{% block title %}Profiel{% endblock %}
+
+{% block content %}
+<div class ="content">
+    <article class="profile-table-card">
+    <h2>Profiel van <span id="student_title_name"></span></h2>
+    <p style="margin-bottom: 40px">Hieronder vind je alle informatie behorend bij jouw profiel</p>
+
+    <div class="profile-info-alternative">
+        <label for="name" style="text-decoration: underline;">Naam:</label>
+        <p><span id="student_name"></span></p><br><br>
+
+        <label for="email" style="text-decoration: underline">E-mailadres:</label>
+        <p><span id="student_email_name"></span>@school.nl</p><br><br>
+
+        <label for="courses" style="text-decoration: underline">Vakken:</label>
+        <p><span id="student_subjects"></span></p><br><br>
+
+        <label for="teachers" style="text-decoration: underline">Docenten:</label>
+        <p><span id="student_myteachers"></span></p><br><br>
+
+        <section id="grades_section">
+            <label for="status" style="text-decoration: underline">Status:</label>
+            <p><span id="motivation"></span></p>
+            <p><span id="average_grade"></span></p><br><br>
+
+            <hr>
+
+            <label for="weaknesses" style="text-decoration: underline; font-family: sans-serif"><h3>Vakken waar je moeite mee hebt:</h3></label>
+            <p><span id="low_grade"></span></p><br><br>
+
+            <label for="status" style="text-decoration: underline">Alle vakken (gemiddeld):</label>
+            <p>Biologie: <span id="biology_grade"></span></p>
+            <p>Natuurkunde: <span id="physics_grade"></span></p>
+            <p>Scheikunde: <span id="science_grade"></span></p>
+            <p>Wiskunde: <span id="math_grade"></span></p>
+        </section>
+
+    </div>
+    {% if gender == 'M' %}
+    <div style="margin-top:40px;">
+    <img
+        src="{{ url_for('static', filename='images/boy_profile_picture_new.jpg') }}"
+        style="height:250px; border-radius:50%; border:10px solid #FEDE00;"
+        alt="Profielfoto van een jongen">
+    </div>
+
+    {% elif gender == 'F' %}
+    <div style="margin-top:40px;">
+    <img
+        src="{{ url_for('static', filename='images/girl_profile_picture_new.jpg') }}"
+        style="height:250px; border-radius:50%; border:10px solid #FEDE00;"
+        alt="Profielfoto van een meisje">
+    </div>
+    {% endif %}
+    </article>
+</div>
+
+<script>
+const studentId = {{ student_id }}
+</script>
+<script src= "{{ url_for('static', filename='JS/student_profile.js') }}" ></script>
+
+{% endblock %}

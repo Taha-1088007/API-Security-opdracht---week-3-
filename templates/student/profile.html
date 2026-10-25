@@ -1,0 +1,50 @@
+{% extends "base_student.html" %}
+
+{% block title %}Profiel{% endblock %}
+
+{% block content %}
+<h2>Profiel van {{ student[1] }}</h2>
+<p>Hieronder vind je alle informatie behorend bij jouw profiel.</p>
+
+<div class="profile-info">
+    <label>Naam:</label>
+    <p>{{ student[1] }}</p>
+
+    <label>Gemiddeld cijfer:</label>
+    <p>
+        {% if student[2] %}
+            {{ (student[2] * 10)|round(1) }} / 10
+        {% else %}
+            Nog geen resultaten beschikbaar
+        {% endif %}
+    </p>
+
+    <label>Status:</label>
+    {% if student[2] and student[2] < 0.5 %}
+        <p style="color:#ff4d4d; font-weight:bold;">⚠ Achterstand</p>
+    {% else %}
+        <p style="color:#4CAF50; font-weight:bold;">✔ Op niveau</p>
+    {% endif %}
+</div>
+
+<hr>
+
+<h3>Vakken waar je moeite mee hebt</h3>
+
+{% if weak_subjects %}
+    <ul>
+        {% for subject in weak_subjects %}
+            <li>{{ subject[1] }} – {{ (subject[2] * 10)|round(1) }} / 10</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>🎉 Je hebt geen vakken onder 0.5!</p>
+{% endif %}
+
+<div style="margin-top:40px;">
+    <img
+        src="{{ url_for('static', filename='images/boy_profile_picture.jpg') }}"
+        style="height:250px; border-radius:50%; border:10px solid #FEDE00;"
+        alt="Profielfoto van een jongen">
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base_student.html" %}
+
+{% block title %}Homepage student{% endblock %}
+
+{% block content %}
+<div class="content_studenthome">
+    <h2>Welkom, {{ current_user[1] }}!</h2>
+    <h3>Overzicht</h3>
+
+    <section class="cards">
+        <a href="{{ url_for('student.alternative_profile_student') }}#grades_section" class="card-link">
+            <article class="card">
+                <h4>Gemiddelde score</h4>
+                <p class="big" id="avg-score">...</p>
+            </article>
+        </a>
+
+        <a href="{{ url_for('student.subjects') }}" class="card-link">
+            <article class="card">
+                <h4>Vakken op niveau</h4>
+                <p class="big" id="on-level">...</p>
+            </article>
+        </a>
+
+        <a href="{{ url_for('student.subjects') }}" class="card-link">
+            <article class="card">
+                <h4>Aantal vakken</h4>
+                <p class="big" id="attention">...</p>
+            </article>
+        </a>
+    </section>
+</div>
+
+<script>
+fetch("{{ url_for('student.student_home_api') }}")
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("avg-score").textContent = data.avg_score + "/10";
+        //document.getElementById("on-level").textContent = data.on_level + " van " + data.total;
+        document.getElementById("attention").textContent = (data.total - data.on_level);
+    })
+    .catch(err => console.error("Fout bij ophalen studentdata:", err));
+</script>
+
+<script>
+const studentId = "{{ student_id }}";
+</script>
+<script src= "{{ url_for('static', filename='JS/home.js') }}" ></script>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base_teacher.html" %}
+
+{% block title %}Homepage docent{% endblock %}
+
+{% block content %}
+
+    <h2>Welkom, {{ current_user[1] }}!</h2>
+            <h3>Overzicht</h3>
+        <section class="cards">
+
+            <a href="/teacher/class" class="card-link">
+            <article class="card">
+                <h4>Klassenoverzicht</h4>
+                 <p class="big" id="student-count"></p>
+            </article>
+            </a>
+
+            <a href="/teacher/class" class="card-link">
+            <article class="card">
+                <h4>Aandacht nodig</h4>
+                <p class="big"></p>
+                <p><span id="attention-count">...</span> leerlingen hebben extra aandacht nodig.</p>
+
+            </article>
+            </a>
+        </section>
+    <script>
+    fetch("/teacher/api/home")
+        .then(res=> res.json())
+        .then(data =>{
+            document.getElementById("student-count").textContent = data.student_count + " leerlingen";
+            document.getElementById("attention-count").textContent = data.attention_headed;
+            document.getElementById("attention-needed").textContent = data.attention_headed + " leerlingen";
+        })
+        .catch(err=> console.error("Fout bij het ophalen van de docentendata:", err))
+    </script>
+
+{% endblock %}

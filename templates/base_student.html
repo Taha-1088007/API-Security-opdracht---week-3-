@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+<nav class="sidebar_navigation">
+    <h1>Test-Correct</h1>
+    <ul>
+        <li>
+            <a href="{{ url_for('student.home_student') }}">
+                <img src="{{ url_for('static', filename='images/Home.svg') }}" alt="">
+                <span class="title">Home</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('student.student_progress') }}">
+                <img src="{{ url_for('static', filename='images/Progress.svg') }}" alt="">
+                <span class="title">Voortgang</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('student.learning_goals_student') }}">
+                <img src="{{ url_for('static', filename='images/Goals.svg') }}" alt="">
+                <span class="title">Leerdoelen</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('student.subjects') }}">
+                <img src="{{ url_for('static', filename='images/Subject.svg') }}" alt="">
+                <span class="title">Vakken</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('student.alternative_profile_student') }}">
+                <img src="{{ url_for('static', filename='images/Profile.svg') }}" alt="">
+                <span class="title">Profiel</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('auth.logout') }}">
+                <img src="{{ url_for('static', filename='images/Logout.svg') }}" alt="">
+                <span class="title">Uitloggen</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base_teacher.html' %}
+
+{% block title %}Analyse{% endblock %}
+
+{% block content %}
+    <div class="analysis-page">
+    <section class="analysis-card">
+        <header>
+        <h1>Analyse</h1>
+            <p>Overzicht van de taxonomieniveaus waar de klas moeite bij heeft.</p>
+        </header>
+        <figure class="chart-area">
+            <div style="position: relative; width: 100%; height: 400px;">
+                <canvas id="myChart"></canvas>
+
+            </div>
+        </figure>
+    </section>
+
+    <aside class="analysis-card">
+    <section>
+    <header>
+        <h2>Prioriteit Onderwerpen</h2>
+    </header>
+
+        <article>
+        <span class="status-score low">Moeilijkheden</span>
+            <p>De klas scoort laag op de volgende taxonomieniveaus:
+                <br>
+                    1. <span id="lowest_taxonomy"></span>
+                <br>
+                    2. <span id="second_lowest_taxonomy"></span>
+
+            </p><br>
+            <h3>Onderwerpen:</h3>
+            <p>De onderstaande onderwerpen kan je het beste terug laten komen in de les.</p>
+            <ul class="keyword-tags">
+              <li>1. <span id="keywords_first"></span></li>
+            </ul>
+
+        </article>
+    </section>
+    </aside>
+</div>
+
+<script>const teacherId = {{ teacher_id }};</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='JS/analyse.js') }}"></script>
+
+{% endblock %}

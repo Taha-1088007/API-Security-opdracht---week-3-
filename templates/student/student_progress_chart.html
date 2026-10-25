@@ -1,0 +1,36 @@
+{% extends 'base_student.html' %}
+{% block title %}Progress{% endblock %}
+{% block content %}
+<main class="analysis-page">
+
+  <section class="analysis-card">
+    <header>
+      <h1>Voortgang</h1>
+      <p>Hieronder wordt jouw voortgang over de tijd bij al jouw vakken in een grafiek weergegeven.</p>
+    </header>
+
+    <div class="charts-grid">
+      <figure class="chart-area">
+        <h2>Biologie</h2>
+        <canvas id="chartBiology"></canvas>
+      </figure>
+      <figure class="chart-area">
+        <h2>Natuurkunde</h2>
+        <canvas id="chartPhysics"></canvas>
+      </figure>
+      <figure class="chart-area">
+        <h2>Scheikunde</h2>
+        <canvas id="chartChem"></canvas>
+      </figure>
+      <figure class="chart-area">
+        <h2>Wiskunde</h2>
+        <canvas id="chartMath"></canvas>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<script>const studentId = {{ student_id }};</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='JS/Student_progress_chart.js') }}"></script>
+{% endblock %}

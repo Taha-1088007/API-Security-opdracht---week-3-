@@ -1,0 +1,53 @@
+{% extends 'base_teacher.html' %}
+
+<h1>{% block title %}
+    Profiel
+{% endblock %}</h1>
+
+
+{% block content %}
+<div class ="content">
+    <article class="profile-table-card">
+    <h2>Profiel van <span id="teacher_title_name"></span></h2>
+    <p>Hieronder vind je alle informatie behorend bij jouw profiel</p><br>
+
+    <div class="profile-info-alternative">
+        <label for="name" style="text-decoration: underline;">Naam:</label>
+        <p><span id="teacher_name"></span></p><br><br>
+
+        <label for="email" style="text-decoration: underline">E-mailadres:</label>
+        <p><span id="teacher_email_name"></span>@school.nl</p><br><br>
+
+        <label for="courses" style="text-decoration: underline">Vakspecialiteit:</label>
+        <p><span id="subject_name"></span></p><br><br>
+
+        <label for="teachers" style="text-decoration: underline">Leerlingen:</label>
+        <p><span id="my_students"></span></p><br><br>
+    </div>
+
+    {% if gender == 'M' %}
+    <div style="background-image: url('{{ url_for('static', filename='') }}');background-size: cover; height:480px; padding-top:20px;">
+      <img
+           src="{{ url_for('static', filename='images/male_teacher_profile_picture.jpg') }}"
+           style="height:250px; border-radius: 50%; border: 10px solid #FEDE00;"
+           alt="Profielfoto van een man">
+    </div>
+
+    {% elif gender == 'F' %}
+    <div style="background-image: url('{{ url_for('static', filename='') }}');background-size: cover; height:480px; padding-top:20px;">
+      <img
+           src="{{ url_for('static', filename='images/female_teacher_profile_picture.jpg') }}"
+           style="height:250px; border-radius: 50%; border: 10px solid #FEDE00;"
+           alt="Profielfoto van een vrouw">
+    </div>
+    {% endif %}
+    </article>
+</div>
+
+<script>
+const teacherId = {{ teacher_id }}
+</script>
+<script src= "{{ url_for('static', filename='JS/teacher_profile.js') }}" ></script>
+
+{% endblock %}
+

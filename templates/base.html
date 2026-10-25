@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+    {% block extra_css %}{% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="dashboard">
+
+<div class="layout">
+    {% block navbar %}{% endblock %}
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+</div>
+
+</body>
+</html>

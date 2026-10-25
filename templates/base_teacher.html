@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+<nav class="sidebar_navigation">
+    <h1>Test-Correct</h1>
+    <ul>
+        <li>
+            <a href="/teacher/home">
+                <img src="{{ url_for('static', filename='images/Home.svg') }}" alt="">
+                <span class="title">Home</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/teacher/class">
+                <img src="{{ url_for('static', filename='images/klas.svg') }}" alt="">
+                <span class="title">Klas</span>
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/teacher/analyse">
+                <img src="{{ url_for('static', filename='images/Progress.svg') }}" alt="">
+                <span class="title">Analyse</span>
+            </a>
+        </li>
+
+
+        <li>
+            <a href="/teacher/subject">
+                <img src="{{ url_for('static', filename='images/Subject.svg') }}" alt="">
+                <span class="title">Onderwerpen</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/teacher/profile">
+                <img src="{{ url_for('static', filename='images/Profile.svg') }}" alt="">
+                <span class="title">Profiel</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/logout">
+                <img src="{{ url_for('static', filename='images/Logout.svg') }}" alt="">
+                <span class="title">Uitloggen</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}

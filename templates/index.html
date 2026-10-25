@@ -1,0 +1,44 @@
+<!doctype html>
+  <html lang="nl">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+      <title>Test Correct - home</title>
+  </head>
+  <body class="content_2">
+  <header class="main-header">
+      <a href="/" class="brand-link">
+      <h1 class="caption_1">TEST-CORRECT</h1>
+      <img src="static/images/test-correct.png" alt="Test-correct logo" class="logo">
+          </a>
+  </header>
+    <main class="landing-content">
+      <p class="caption_2">Kies hoe je wilt inloggen.</p>
+        <section class="login-grid">
+      <a href="/login?role=teacher" class="card-link">
+          <article class="card landing-variant">
+              <figure class="card-visual docent-bg">
+                  <span>🎓</span>
+              </figure>
+              <footer class="body">
+                  <span>Docent</span>
+              </footer>
+          </article>
+      </a>
+
+
+       <a href="/login?role=student" class="card-link">
+          <article class="card landing-variant">
+              <figure class="card-visual student-bg">
+                  <span>📝</span>
+              </figure>
+              <footer class="body">
+                  <span>Leerling</span>
+              </footer>
+          </article>
+      </a>
+    </section>
+        </main>
+  </body>
+</html>

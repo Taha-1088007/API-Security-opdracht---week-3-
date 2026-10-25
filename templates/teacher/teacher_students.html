@@ -1,0 +1,32 @@
+{% extends 'base_teacher.html' %}
+
+<h1>{% block title %}
+    Leerlingen
+{% endblock %}</h1>
+
+
+{% block header %}
+
+
+<!-- =================content=================== -->
+    {% endblock %}
+    {% block content%}
+            <h2 class="dashboard"> Overzicht klas</h2>
+            <article class="table-card">
+                <table class="student-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Naam</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Acties</th>
+                    </tr>
+                    </thead>
+                    <tbody id="students-list">
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+    <script src="{{ url_for('static', filename='JS/teacher.js') }}"></script>
+    {% endblock %}

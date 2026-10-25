@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+    <title>Login</title>
+</head>
+<body class="content_2">
+
+<header class="main-header">
+    <a href="/" class="brand-link">
+        <h1 class="caption_1">TEST-CORRECT</h1>
+        <img src="../static/images/test-correct.png" alt="Test-correct logo" class="logo">
+        </a>
+</header>
+<main class="login-content">
+<section class="login-box">
+    <h2 class="login-title">Log in</h2>
+    <form method="POST" action="/login" class="login-form">
+    <input type="hidden" name="role" value="{{ role }}">
+        <label for="email">Emailadres</label>
+            <input type="email" id="email" name="email" placeholder="naam@school.nl" required>
+
+        <label for="password">Wachtwoord</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+        {% if error %}
+        <p class="login-error">{{ error }}</p>
+        {% endif %}
+
+    <button type="submit">Inloggen</button>
+    </form>
+</section>
+</main>
+</body>
+</html>

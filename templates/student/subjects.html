@@ -1,0 +1,49 @@
+{% extends "base_student.html" %}
+
+{% block title %}Overzicht vakken{% endblock %}
+
+{% block content %}
+<h2>Overzicht vakken</h2>
+
+<div class="table-card">
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>Vak</th>
+                <th>Status</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Biologie</td>
+                <td><span id="status-Biologie"></span></td>
+                <td><a class="action-btn" href="{{ url_for('student.alternative_profile_student') }}#grades_section"> Details </a></td>
+            </tr>
+            <tr>
+                <td>Natuurkunde</td>
+                <td><span id="status-Natuurkunde"></span></td>
+                <td><a class="action-btn" href="{{ url_for('student.alternative_profile_student') }}#grades_section"> Details </a></td>
+            </tr>
+            <tr>
+                <td>Scheikunde</td>
+                <td><span id="status-Scheikunde"></span></td>
+                <td><a class="action-btn" href="{{ url_for('student.alternative_profile_student') }}#grades_section"> Details </a></td>
+            </tr>
+            <tr>
+                <td>Wiskunde</td>
+                <td><span id="status-Wiskunde"></span></td>
+                <td><a class="action-btn" href="{{ url_for('student.alternative_profile_student') }}#grades_section"> Details </a></td>
+            </tr>
+                </td>
+        </tbody>
+    </table>
+</div>
+
+<script>
+const studentId = "{{ student_id }}";
+</script>
+<script src= "{{ url_for('static', filename='JS/subjects.js') }}" ></script>
+
+{% endblock %}

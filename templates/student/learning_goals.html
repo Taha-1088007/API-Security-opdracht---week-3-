@@ -1,0 +1,41 @@
+{% extends 'base_student.html' %}
+
+<h1>{% block title %}
+    Learning Goals
+{% endblock %}</h1>
+
+
+{% block content%}
+        <div class ="content">
+            <h2 class="dashboard"> Overzicht leerdoelen van {{ current_user[1] }}</h2>
+            <article class="table-card">
+                <table class="student-table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Vak</th>
+                        <th scope="col">Leerdoel</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody id="student-list">
+                    {% for leerdoel in leerdoelen %}
+                    <tr>
+                        <td>{{ leerdoel[0] }}</td>
+                        <td>{{ leerdoel[1] }}</td>
+                        <td>
+                            {% if leerdoel[4] == 'weak' %}
+                                <span class="status-help">Blijf oefenen, Je kunt het! </span>
+                            {% elif leerdoel[4] == 'average' %}
+                                <span class="status-risk">Het gaat de goede kant op,<br> maar het kan nog iets beter!</span>
+                            {% else %}
+                                <span class="status-success">Goed bezig! Ga zo door!!</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    <script src="{{ url_for('static', filename='JS/Student_learning_goals.js') }}"></script>
+{% endblock %}
